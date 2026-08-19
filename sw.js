@@ -1,10 +1,11 @@
-const CACHE_NAME = "doa-wirid-cache-v3";
+const CACHE_NAME = "doa-wirid-cache-v4";
 const ASSETS = [
   "./",
   "./index.html",
   "./manifest.json",
   "./icon-192.png",
   "./icon-512.png",
+  "./icon-512-maskable.png",
   "./screenshot-1.png",
   "./screenshot-2.png"
 ];
