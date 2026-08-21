@@ -630,14 +630,6 @@ const searchEl = document.getElementById('search');
       sidebarList.appendChild(b);
     });
   }
-  JSEOF
-  Output
-
-  const sidebarList = document.getElementById('sidebarList');
-  const sidebar = document.getElementById('sidebar');
-  const overlay = document.getElementById('overlay');
-  const menuBtn = document.getElementById('menuBtn');
-
   function openSidebar() { sidebar.classList.add('show'); overlay.classList.add('show'); }
   function closeSidebar() { sidebar.classList.remove('show'); overlay.classList.remove('show'); }
   menuBtn.addEventListener('click', openSidebar);
