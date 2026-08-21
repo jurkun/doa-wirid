@@ -1,4 +1,4 @@
-const CACHE_NAME = "doa-wirid-cache-v4";
+const CACHE_NAME = "doa-wirid-cache-v5";
 const ASSETS = [
   "./",
   "./index.html",
@@ -28,7 +28,26 @@ self.addEventListener("activate", (event) => {
   self.clients.claim();
 });
 
+// Network-first for HTML so content updates show immediately.
+// Falls back to cache only when offline.
 self.addEventListener("fetch", (event) => {
+  const isHTML = event.request.mode === "navigate" ||
+    (event.request.headers.get("accept") || "").includes("text/html");
+
+  if (isHTML) {
+    event.respondWith(
+      fetch(event.request)
+        .then((response) => {
+          const copy = response.clone();
+          caches.open(CACHE_NAME).then((cache) => cache.put(event.request, copy));
+          return response;
+        })
+        .catch(() => caches.match(event.request))
+    );
+    return;
+  }
+
+  // Cache-first for static assets (icons, fonts, etc.)
   event.respondWith(
     caches.match(event.request).then((cached) => {
       return (
