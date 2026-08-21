@@ -255,6 +255,13 @@
 
 <script>
 const categories = {
+  tawassul: {
+    label: "Tawassul",
+    items: [
+      [...],
+      [...]
+    ]
+  },
   sholawat: {
     label: "Sholawat Arba'in",
     items: [
@@ -352,7 +359,7 @@ const categories = {
   }
 };
 
-let currentCat = 'sholawat';
+  let currentCat = 'tawassul';
 const urlParams = new URLSearchParams(window.location.search);
 const catParam = urlParams.get('cat');
 if (catParam && categories[catParam]) currentCat = catParam;
@@ -368,9 +375,7 @@ function buildTabs(){
   tabsEl.innerHTML = '';
   Object.keys(categories).forEach(key => {
     const t = document.createElement('span');
-    t.textContent = categories[key].label.split(' ')[0] === 'Sholawat' ? 'Sholawat' :
-                     categories[key].label.split(' ')[0] === 'Wirid' ? 'Wirid' :
-                     categories[key].label.split(' ')[0] === 'Doa' && categories[key].label.includes('Rezeki') ? 'Hajat' : 'Harian';
+    t.textContent = categories[key].label.includes('Rezeki') ? 'Hajat' : categories[key].label.split(' ')[0];
     t.dataset.key = key;
     if(key === currentCat) t.classList.add('active');
     t.addEventListener('click', () => {
