@@ -340,7 +340,7 @@ const categories = {
 ["رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً وَفِي الْآخِرَةِ حَسَنَةً وَقِنَا عَذَابَ النَّارِ","Ya Tuhan kami, berilah kami kebaikan di dunia dan kebaikan di akhirat, serta lindungilah kami dari siksa neraka — doa sapu jagad, penutup wirid."]
     ]
   },
-  Ratib Al Haddad: {
+  ratibalhaddad: {
     label: "Ratib Al Haddad",
     items: [
       ["إِلَى حَضْرَةِ سَيِّدِنَا وَشَفِيْعِنَا وَنَبِيِّنَا وَمَوْلَانَا مُحَمَّدٍ صَلَّى اللهُ عَلَيْهِ وَسَلَّمَ، الفاتحة", "Al-Fatihah untuk tuan kami, pemberi syafaat kami, Nabi kami, dan majikan kami Nabi Muhammad ﷺ"],
@@ -374,7 +374,7 @@ const categories = {
   }
 };
 
-              let currentCat = 'Tawassul';
+  let currentCat = 'tawassul';
 const urlParams = new URLSearchParams(window.location.search);
 const catParam = urlParams.get('cat');
 if (catParam && categories[catParam]) currentCat = catParam;
