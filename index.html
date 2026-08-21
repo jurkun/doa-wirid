@@ -426,9 +426,10 @@ Output
     </div>
   </div>
 
-  <div class="intro">
+  <div class="intro" id="introBox">
     <div class="label">Muqaddimah</div>
-    <p>بِسْمِ اللَّهِ الرَّحْمٰنِ الرَّحِيمِ &nbsp; اَلْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ حَمْدًا يُوَافِي نِعَمَهُ وَيُكَافِئُ مَزِيدَهُ</p>
+    <p>بِسْمِ اللَّهِ الرَّحْمٰنِ الرَّحِيمِ &nbsp; </p>
+    <p>اَلْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ حَمْدًا يُوَافِي نِعَمَهُ وَيُكَافِئُ مَزِيدَهُ</p>
   </div>
 
   <div class="list" id="list"></div>
@@ -655,6 +656,7 @@ function buildTabs(){
 function render(filter){
   const cat = categories[currentCat];
   catTitleEl.textContent = cat.label;
+  document.getElementById('introBox').style.display = (currentCat === 'sholawat') ? 'block' : 'none';
   listEl.innerHTML = '';
   const q = (filter||'').trim();
   let shown = 0;
